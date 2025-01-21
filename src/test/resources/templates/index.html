@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>トップ画面</title>
+    <link rel="shortcut icon" hlef="images/favicon.png" />
+    <style>
+        body {
+            background-image: url('static/images/background-image.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .content {
+            text-align: center;
+            color: white;
+        }
+        .button {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>ブログ名</h1>
+        <p>ブログの説明</p>
+        <a href="/home" class="button">読み始める</a>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>ブログ概要一覧</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: #f8f9fa;
+        }
+        .header a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #007bff;
+        }
+        .blog-list {
+            margin: 20px;
+        }
+        .blog-item {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+        .blog-item h2 {
+            margin-top: 0;
+        }
+        .blog-item p {
+            margin: 0;
+        }
+        .blog-item .read-more {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+        }
+        .pagination {
+            text-align: center;
+            margin: 20px;
+        }
+        .pagination a {
+            margin: 0 5px;
+            text-decoration: none;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="/logout">ログアウト</a>
+        <a href="/">トップページ</a>
+        <a href="/home">記事一覧</a>
+        <a href="/blogs/new">記事投稿</a>
+    </div>
+    <div class="blog-list">
+        <div th:each="blog : ${blogs.content}" class="blog-item">
+            <h2 th:text="${blog.title}"></h2>
+            <p th:text="${blog.summary}"></p>
+            <a th:href="@{/blogs/{id}(id=${blog.id})}" class="read-more">続きを読む</a>
+        </div>
+    </div>
+    <div class="pagination">
+        <a th:href="@{/home(page=${blogs.number - 1})}" th:if="${blogs.hasPrevious()}">前へ</a>
+        <a th:href="@{/home(page=${blogs.number + 1})}" th:if="${blogs.hasNext()}">次へ</a>
+    </div>
+</body>
+</html>
+
