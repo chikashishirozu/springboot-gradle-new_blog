@@ -1,6 +1,6 @@
 # How to compile Gradle
 
-$ ./gradlew --build --clean
+$ ./gradlew clean build --no-build-cache
 
 この設計図は、Spring Bootを使用したブログアプリケーションの多層アーキテクチャを示しています。各レイヤーとコンポーネントについて詳しく解説します。
 アーキテクチャの全体構成
